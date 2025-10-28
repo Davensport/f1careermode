@@ -1,0 +1,215 @@
+/* =============================================
+   BASIC SETUP
+============================================== */
+:root {
+    --ferrari-red: #D20000;
+    --dark-grey: #1E1E1E;
+    --mid-grey: #2C2C2C;
+    --light-grey: #e0e0e0;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--white);
+    font-weight: 700;
+}
+
+h1 { font-size: 2.5rem; }
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--ferrari-red);
+    border-bottom: 2px solid var(--mid-grey);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; color: var(--ferrari-red); }
+
+a {
+    color: var(--ferrari-red);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* =============================================
+   HEADER & NAV
+============================================== */
+header {
+    background: var(--mid-grey);
+    padding: 20px 0;
+    border-bottom: 4px solid var(--ferrari-red);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+header nav a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 15px;
+    padding-bottom: 5px;
+    transition: all 0.2s ease;
+}
+
+header nav a:hover {
+    color: var(--ferrari-red);
+    text-decoration: none;
+}
+
+header nav a.active {
+    color: var(--ferrari-red);
+    border-bottom: 2px solid var(--ferrari-red);
+}
+
+/* =============================================
+   STATS SECTION
+============================================== */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.driver-card {
+    background: var(--mid-grey);
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 40%;
+}
+
+.driver-card h3 {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--dark-grey);
+    padding-bottom: 10px;
+}
+
+.stat-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    padding: 5px 0;
+}
+.stat-line strong {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.vs {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--ferrari-red);
+}
+
+/* =============================================
+   STANDINGS TABLE
+============================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    font-weight: 700;
+}
+
+table tr {
+    background-color: var(--mid-grey);
+    border-bottom: 2px solid var(--dark-grey);
+}
+
+table tr:nth-child(even) {
+    background-color: #262626;
+}
+
+table tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* =============================================
+   ARTICLES
+============================================== */
+article {
+    background: var(--mid-grey);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--ferrari-red);
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+.article-meta span {
+    margin-right: 20px;
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+.subhead {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ccc;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+}
+
+blockquote {
+    border-left: 4px solid var(--ferrari-red);
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-style: italic;
+    font-size: 1.1rem;
+    background: var(--dark-grey);
+}
+
+/* =============================================
+   FOOTER
+============================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid var(--mid-grey);
+}
