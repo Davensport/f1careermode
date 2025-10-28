@@ -33,7 +33,7 @@ header {
 }
 
 .header-logo img {
-    max-height: 120px; /* INCREASED HEIGHT for better visibility (Adjust if you crop the logo image) */
+    max-height: 300px; /* INCREASED HEIGHT for better visibility (Adjust if you crop the logo image) */
     width: auto;
     margin-bottom: 5px; /* Slightly reduced space before nav */
 }
@@ -855,3 +855,4 @@ table tbody tr:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px 30px;
+
