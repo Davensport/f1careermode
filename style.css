@@ -69,6 +69,15 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+.hero-image { /* Style for the image added to hero article */
+    width: 100%;
+    max-width: 65%; /* Adjusted size */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Add margin top/bottom */
+    border-radius: 8px;
+}
+
 
 .hero-article h2 {
     font-size: 2.5em;
@@ -386,7 +395,7 @@ table tbody tr:hover {
     border-radius: 4px;
 }
 
-/* --- NEW SCHEDULE PAGE STYLES --- */
+/* Schedule Page */
 .schedule-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -458,8 +467,6 @@ table tbody tr:hover {
     text-align: center;
     width: 33%;
 }
-
-/* --- NEW DRIVER AVATAR STYLES --- */
 .driver-avatar {
     width: 50px;
     height: 50px;
@@ -468,8 +475,8 @@ table tbody tr:hover {
     display: block;
     border: 2px solid #555;
     background-color: #444;
+    object-fit: cover; /* Ensures image covers the circle */
 }
-/* --- END AVATAR STYLES --- */
 
 .podium-pos {
     font-weight: 900;
@@ -497,7 +504,100 @@ table tbody tr:hover {
     color: #aaa;
     text-transform: uppercase;
 }
-/* --- END SCHEDULE STYLES --- */
+
+/* --- NEW DRIVERS PAGE STYLES --- */
+.page-intro { /* Simple intro text style */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #ccc;
+}
+.driver-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.driver-grid-card {
+    background-color: #2a2a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+    color: #f0f0f0;
+}
+.driver-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.driver-grid-card::before { /* Team color accent bar */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}
+/* Team Colors */
+.driver-card-ferrari::before { background-color: #D20000; }
+.driver-card-redbull::before { background-color: #06002f; }
+.driver-card-mclaren::before { background-color: #FF8700; }
+.driver-card-mercedes::before { background-color: #00D2BE; }
+.driver-card-williams::before { background-color: #005AFF; }
+.driver-card-aston::before { background-color: #006F62; }
+.driver-card-alpine::before { background-color: #0090FF; }
+.driver-card-haas::before { background-color: #FFFFFF; }
+.driver-card-sauber::before { background-color: #00F5D0; } /* Kick Sauber green */
+.driver-card-rb::before { background-color: #6692FF; } /* Visa Cash App RB blue */
+
+
+.driver-card-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px; /* Space below accent bar */
+}
+
+.driver-card-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px; /* Slightly rounded corners for image */
+    border: 2px solid #444;
+}
+
+.driver-card-info {
+    flex-grow: 1;
+}
+
+.driver-name {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+.driver-name span { /* For first name */
+    font-weight: 300;
+    display: block; /* Stack names */
+}
+
+.driver-team {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.driver-number {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #e10600; /* Use team color? Maybe red is better overall */
+    line-height: 1;
+}
+/* --- END DRIVERS PAGE STYLES --- */
 
 
 /* Footer */
@@ -513,63 +613,32 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-    header nav a {
-        margin: 0 8px;
-        font-size: 0.9em;
-    }
-    .hero-and-sidebar {
-        grid-template-columns: 1fr; /* Stack columns on smaller screens */
-    }
-    .hero-article h2 {
-        font-size: 2em;
-    }
-    .sidebar h3, .stories h2, section h2 {
-        font-size: 2em;
-    }
-    .driver-card {
-        min-width: unset;
-        width: 100%;
-    }
-    .stats-container {
-        flex-direction: column;
-    }
-    .vs {
-        margin: 15px 0;
-    }
-    .schedule-grid {
-        grid-template-columns: 1fr;
-    }
+    header h1 { font-size: 1.8em; }
+    header nav a { margin: 0 8px; font-size: 0.9em; }
+    .hero-and-sidebar { grid-template-columns: 1fr; }
+    .hero-article h2 { font-size: 2em; }
+    .sidebar h3, .stories h2, section h2 { font-size: 2em; }
+    .driver-card { min-width: unset; width: 100%; }
+    .stats-container { flex-direction: column; }
+    .vs { margin: 15px 0; }
+    .schedule-grid { grid-template-columns: 1fr; }
+    .driver-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } /* Adjust driver grid on tablet */
+
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-    header nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    header nav a {
-        flex: 1 1 auto;
-        margin: 5px;
-        padding: 5px;
-    }
-    .hero-article, .sidebar, .story-card {
-        padding: 15px;
-    }
-    .hero-article h2 {
-        font-size: 1.6em;
-    }
-    .sidebar h3, .stories h2, section h2 {
-        font-size: 1.6em;
-    }
-    table th, table td {
-        padding: 8px 10px;
-        font-size: 0.9em;
-    }
+    header h1 { font-size: 1.5em; }
+    header nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    header nav a { flex: 1 1 auto; margin: 5px; padding: 5px; }
+    .hero-article, .sidebar, .story-card { padding: 15px; }
+    .hero-article h2 { font-size: 1.6em; }
+    .sidebar h3, .stories h2, section h2 { font-size: 1.6em; }
+    table th, table td { padding: 8px 10px; font-size: 0.9em; }
     .podium-name { font-size: 1rem; }
+    .driver-grid { grid-template-columns: 1fr; } /* Stack driver cards on mobile */
+    .driver-card-main { flex-direction: column; text-align: center; }
+    .driver-card-image { width: 120px; height: 120px; margin-bottom: 10px; }
+    .driver-name { font-size: 1.6em; }
+    .driver-number { font-size: 3em; margin-top: 5px; }
+
 }
