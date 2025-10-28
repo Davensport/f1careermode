@@ -21,24 +21,23 @@ body {
 header {
     background-color: #000000;
     color: white;
-    padding: 15px 0;
+    padding: 10px 0; /* Reduced padding */
     border-bottom: 3px solid #e10600;
+    text-align: center; /* Center logo and nav */
 }
 
-header h1 { /* Changed to match "Pit Wall" */
-    margin: 0;
-    font-size: 2.5em; /* Adjust as needed */
-    text-align: center;
-    letter-spacing: 1px;
-    font-weight: 900;
-    color: #e10600;
-    /* Consider an F1-style font if available/imported */
-    /* font-family: 'Titillium Web', sans-serif; /* OPTIONAL: Apply to site title */
+/* --- NEW Logo Styling --- */
+.header-logo img {
+    max-height: 60px; /* Control logo height */
+    width: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between logo and nav */
 }
+
+/* --- REMOVED Old header h1 style --- */
 
 header nav {
     text-align: center;
-    margin-top: 15px;
+    /* margin-top: 15px; REMOVED - handled by logo margin */
 }
 
 header nav a {
@@ -630,26 +629,25 @@ table tbody tr:hover {
 .driver-card-rb { background: linear-gradient(90deg, #1f1f27 40%, #293a66 100%); }
 
 /* --- REVISED INDIVIDUAL DRIVER PAGE STYLES --- */
-.driver-page-container { /* Renamed container for clarity */
-    /* Remove padding if main already handles it */
+.driver-page-container {
+    /* ... */
 }
 
 .driver-hero-banner {
     position: relative;
-    height: 450px; /* Increased height */
-    background-color: #06002f; /* Base Red Bull blue */
+    height: 450px;
+    background-color: #06002f;
     overflow: hidden;
-    margin-bottom: 40px; /* Keep margin */
-    /* Remove border-radius if it's full width */
+    margin-bottom: 40px;
 }
 /* Team specific backgrounds */
 .driver-hero-banner.driver-banner-redbull { background-color: #06002f; }
-.driver-hero-banner.driver-banner-ferrari { background-color: #4a0000; } /* Dark Ferrari Red */
-.driver-hero-banner.driver-banner-mclaren { background-color: #663600; } /* Dark McLaren Orange */
-/* Add other team colors as needed */
+.driver-hero-banner.driver-banner-ferrari { background-color: #4a0000; }
+.driver-hero-banner.driver-banner-mclaren { background-color: #663600; }
+/* ... other team colors ... */
 
-.driver-hero-content { /* Wrapper for info + image */
-    max-width: 1200px; /* Match container width */
+.driver-hero-content {
+    max-width: 1200px;
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -660,24 +658,24 @@ table tbody tr:hover {
 .driver-hero-info {
     position: relative;
     z-index: 3;
-    padding: 0 40px; /* Adjust padding */
+    padding: 0 40px;
     color: #fff;
-    width: 45%; /* Adjust width */
+    width: 45%;
 }
-.driver-hero-info h2 { /* First Name - Script-like */
-    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
-    font-style: normal; /* Remove italic if using Titillium */
+.driver-hero-info h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-style: normal;
     font-size: 4em;
-    font-weight: 300; /* Lighter weight for first name */
+    font-weight: 300;
     margin: 0;
     line-height: 0.8;
     color: #fff;
     text-align: left;
 }
-.driver-hero-info h1 { /* Last Name - Bold Uppercase */
-    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
+.driver-hero-info h1 {
+    font-family: 'Titillium Web', sans-serif;
     font-size: 6em;
-    font-weight: 900; /* Boldest weight */
+    font-weight: 900;
     margin: 0;
     line-height: 1;
     color: #fff;
@@ -690,16 +688,16 @@ table tbody tr:hover {
     display: flex;
     align-items: center;
 }
-.driver-hero-details span { /* Flag, Team */
+.driver-hero-details span {
     margin-right: 20px;
     opacity: 0.9;
     font-weight: 500;
 }
-.driver-hero-details strong { /* Driver Number */
+.driver-hero-details strong {
     font-size: 1.5em;
     font-weight: 900;
-    color: #fff; /* White number */
-    margin-left: auto; /* Push number to the right if needed */
+    color: #fff;
+    margin-left: auto;
 }
 /* Team specific number accents */
 .driver-banner-redbull strong { color: #e10600; text-shadow: 0 0 5px #000; }
@@ -707,39 +705,38 @@ table tbody tr:hover {
 .driver-banner-mclaren strong { color: #fff; text-shadow: 0 0 5px #000; }
 
 
-.driver-hero-image-container { /* New container for image + background number */
+.driver-hero-image-container {
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    width: 60%; /* Adjust width */
+    width: 60%;
     z-index: 1;
 }
 
 .driver-hero-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Contain the driver within bounds */
-    object-position: bottom right; /* Position driver */
+    object-fit: contain;
+    object-position: bottom right;
     position: relative;
-    z-index: 2; /* Image above background number */
-    /* Masking to fade left edge */
+    z-index: 2;
     mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
 
-.driver-hero-bg-number { /* Background number styling */
-    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
+.driver-hero-bg-number {
+    font-family: 'Titillium Web', sans-serif;
     position: absolute;
-    right: 5%; /* Position relative to container */
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 25em; /* Massive font size */
-    font-weight: 900; /* Boldest weight */
-    color: rgba(255, 255, 255, 0.08); /* Very transparent white */
-    z-index: 1; /* Behind image */
+    font-size: 25em;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.08);
+    z-index: 1;
     line-height: 1;
-    user-select: none; /* Prevent text selection */
+    user-select: none;
 }
 
 /* Statistics Section Styles Revised to match F1.com */
@@ -747,43 +744,43 @@ table tbody tr:hover {
     padding-top: 40px;
 }
 .driver-stats-section h2 { /* STATISTICS heading */
-    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
-    font-size: 2.5em; /* Adjusted size */
-    font-weight: 900; /* Boldest weight */
-    color: #dcdcdc; /* Lighter grey */
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #dcdcdc;
     text-transform: uppercase;
     text-align: left;
     margin-bottom: 20px;
-    padding-bottom: 0; /* Remove padding */
-    border-bottom: none; /* Remove border */
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .stats-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Exact two columns */
-    gap: 40px; /* Gap between columns */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .stats-column h3 { /* SEASON / CAREER STATS */
-    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
-    font-size: 1.5em; /* Adjusted size */
-    font-weight: 700; /* Bold weight */
-    color: #dcdcdc; /* Lighter grey */
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #dcdcdc;
     text-transform: uppercase;
     margin-bottom: 25px;
-    border-bottom: none; /* Remove border */
-    padding-bottom: 0; /* Remove padding */
+    border-bottom: none;
+    padding-bottom: 0;
     text-align: left;
 }
 
 .stats-column-box { /* Box around career stats */
-    background-color: #1f1f27; /* Match article background */
-    padding: 20px 25px; /* Adjust padding */
-    border-radius: 12px; /* More rounded corners */
+    background-color: #1f1f27;
+    padding: 20px 25px;
+    border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 .stats-column-box h3 {
-    margin-bottom: 15px; /* Less margin inside box */
+    margin-bottom: 15px;
 }
 
 
@@ -791,46 +788,46 @@ table tbody tr:hover {
 .stat-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline; /* Align label and value nicely */
-    padding: 10px 0; /* Adjusted padding */
-    border-bottom: 1px solid #333338; /* Darker lines */
-    margin-bottom: 10px; /* Space between items */
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid #333338;
+    margin-bottom: 10px;
 }
-.stats-column-box .stat-item { /* Lines inside box */
+.stats-column-box .stat-item {
      border-bottom: 1px solid #444;
 }
 
-.stat-item:last-of-type { /* Remove border from last item in a group */
+.stat-item:last-of-type {
     border-bottom: none;
     margin-bottom: 0;
 }
 
 .stat-label {
-    font-size: 0.9em; /* Smaller label */
-    color: #a0a0a0; /* Lighter grey label */
+    font-size: 0.9em;
+    color: #a0a0a0;
     font-weight: 400;
-    text-transform: none; /* Normal case */
-    flex-basis: auto; /* Let content decide width */
-    margin-right: 15px; /* Space between label and value */
+    text-transform: none;
+    flex-basis: auto;
+    margin-right: 15px;
 }
 
 .stat-value {
-    font-size: 2.8em; /* Much larger stat value */
-    font-weight: 900; /* Bold stat value */
+    font-size: 2.8em;
+    font-weight: 900;
     color: #fff;
     text-align: right;
-    line-height: 1; /* Tighten line height */
+    line-height: 1;
 }
 .stat-value small {
-    font-size: 0.4em; /* Smaller detail text (like x times) */
+    font-size: 0.4em;
     font-weight: 400;
     color: #a0a0a0;
     margin-left: 5px;
-    display: inline-block; /* Prevent wrapping */
+    display: inline-block;
 }
 
 /* Specific Layouts for SEASON column */
-.season-top-stats { /* For Season Pos / Season Pts */
+.season-top-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -839,28 +836,28 @@ table tbody tr:hover {
     border-bottom: 1px solid #333338;
 }
 .season-top-stats .stat-item {
-    flex-direction: column; /* Stack label above value */
-    align-items: flex-start; /* Align left */
+    flex-direction: column;
+    align-items: flex-start;
     border-bottom: none;
     padding: 0;
     margin: 0;
 }
 .season-top-stats .stat-label {
-     margin-bottom: 5px; /* Space between label and value */
+     margin-bottom: 5px;
 }
 .season-top-stats .stat-value {
     text-align: left;
 }
 
-.stats-grid { /* For 2x2 grids */
+.stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px 30px; /* Row gap, Column gap */
+    gap: 15px 30px;
     padding: 20px 0;
     border-bottom: 1px solid #333338;
 }
 .stats-grid:last-of-type {
-    border-bottom: none; /* Remove border from last grid */
+    border-bottom: none;
 }
 
 .stats-grid .stat-item {
@@ -875,7 +872,7 @@ table tbody tr:hover {
 }
 .stats-grid .stat-value {
      text-align: left;
-     font-size: 2.2em; /* Slightly smaller for grid */
+     font-size: 2.2em;
 }
 
 /* --- END INDIVIDUAL DRIVER PAGE STYLES --- */
