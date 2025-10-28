@@ -1,4 +1,8 @@
+/* --- FONT IMPORT (Add this at the VERY TOP) --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Titillium+Web:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap');
+
 body {
+    /* Use Roboto as the base font, Titillium Web for specific headings */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -29,6 +33,7 @@ header h1 { /* Changed to match "Pit Wall" */
     font-weight: 900;
     color: #e10600;
     /* Consider an F1-style font if available/imported */
+    /* font-family: 'Titillium Web', sans-serif; /* OPTIONAL: Apply to site title */
 }
 
 header nav {
@@ -660,18 +665,19 @@ table tbody tr:hover {
     width: 45%; /* Adjust width */
 }
 .driver-hero-info h2 { /* First Name - Script-like */
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Example serif */
-    font-style: italic;
-    font-size: 4em; /* Adjusted for the script look */
-    font-weight: 400;
+    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
+    font-style: normal; /* Remove italic if using Titillium */
+    font-size: 4em;
+    font-weight: 300; /* Lighter weight for first name */
     margin: 0;
-    line-height: 0.8; /* Closer line spacing */
+    line-height: 0.8;
     color: #fff;
     text-align: left;
 }
 .driver-hero-info h1 { /* Last Name - Bold Uppercase */
-    font-size: 6em; /* Larger */
-    font-weight: 900;
+    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
+    font-size: 6em;
+    font-weight: 900; /* Boldest weight */
     margin: 0;
     line-height: 1;
     color: #fff;
@@ -723,12 +729,13 @@ table tbody tr:hover {
 }
 
 .driver-hero-bg-number { /* Background number styling */
+    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
     position: absolute;
     right: 5%; /* Position relative to container */
     top: 50%;
     transform: translateY(-50%);
     font-size: 25em; /* Massive font size */
-    font-weight: 900;
+    font-weight: 900; /* Boldest weight */
     color: rgba(255, 255, 255, 0.08); /* Very transparent white */
     z-index: 1; /* Behind image */
     line-height: 1;
@@ -740,8 +747,9 @@ table tbody tr:hover {
     padding-top: 40px;
 }
 .driver-stats-section h2 { /* STATISTICS heading */
+    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
     font-size: 2.5em; /* Adjusted size */
-    font-weight: 900;
+    font-weight: 900; /* Boldest weight */
     color: #dcdcdc; /* Lighter grey */
     text-transform: uppercase;
     text-align: left;
@@ -757,8 +765,9 @@ table tbody tr:hover {
 }
 
 .stats-column h3 { /* SEASON / CAREER STATS */
+    font-family: 'Titillium Web', sans-serif; /* APPLY F1-LIKE FONT */
     font-size: 1.5em; /* Adjusted size */
-    font-weight: 700;
+    font-weight: 700; /* Bold weight */
     color: #dcdcdc; /* Lighter grey */
     text-transform: uppercase;
     margin-bottom: 25px;
