@@ -616,7 +616,7 @@ table tbody tr:hover {
 .driver-card-sauber { background: linear-gradient(90deg, #2a2a2e 40%, #005a4e 100%); }
 .driver-card-rb { background: linear-gradient(90deg, #2a2a2e 40%, #293a66 100%); }
 
-/* --- Individual Driver Page Styles --- */
+/* --- NEW INDIVIDUAL DRIVER PAGE STYLES --- */
 .driver-hero-banner {
     position: relative;
     height: 400px; /* Adjust height as needed */
@@ -627,13 +627,6 @@ table tbody tr:hover {
     align-items: center;
     border-radius: 12px;
 }
-/* Red Bull specific styles */
-.driver-hero-banner.driver-card-redbull {
-    background-color: #06002f; /* Dark Red Bull Blue */
-    background-image: url('img/redbull-pattern.png'); /* Add a subtle pattern if you have one */
-    background-size: cover;
-    background-position: center;
-}
 
 .driver-hero-info {
     position: relative;
@@ -643,11 +636,10 @@ table tbody tr:hover {
     width: 40%; /* Adjust width of text area */
 }
 .driver-hero-info h2 { /* First Name */
-    font-family: 'Times New Roman', serif; /* For the script font effect */
-    font-size: 3.5em; /* Adjusted for the script look */
+    font-size: 3em;
     font-weight: 300;
     margin: 0;
-    line-height: 0.7; /* Closer line spacing */
+    line-height: 1;
     color: #fff;
     text-align: left;
 }
@@ -663,9 +655,162 @@ table tbody tr:hover {
 .driver-hero-details {
     margin-top: 15px;
     font-size: 1.1em;
-    display: flex; /* Use flexbox for details */
-    align-items: center;
 }
 .driver-hero-details span {
     margin-right: 15px;
-    opacity: 0.8
+    opacity: 0.8;
+}
+.driver-hero-details strong { /* Driver Number */
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #e10600; /* Red Bull red accent */
+}
+
+.driver-hero-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 65%; /* Adjust width of image area */
+    z-index: 1;
+}
+.driver-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* Adjust image focus */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+.driver-stats-section h2 {
+    font-size: 3em;
+    font-weight: 900;
+    color: #ccc;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.stats-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.stats-column h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+.stats-column-box { /* Optional box around career stats */
+    background-color: #2a2a2e;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #444;
+}
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 1em;
+    color: #aaa;
+    flex-basis: 60%; /* Give label more space */
+}
+
+.stat-value {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    text-align: right;
+}
+.stat-value small { /* For details like "(x9)" */
+    font-size: 0.6em;
+    font-weight: 400;
+    color: #aaa;
+    margin-left: 5px;
+}
+/* --- END INDIVIDUAL DRIVER PAGE STYLES --- */
+
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: #888;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    border-top: 3px solid #e10600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) { /* Adjust breakpoint if needed */
+    .driver-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+    .driver-grid-card { grid-template-columns: 1fr; } /* Stack layout within card */
+    .driver-card-info { border-right: none; border-bottom: 1px solid #444; }
+    .driver-card-image-container { height: 200px; } /* Give image a fixed height when stacked */
+    .driver-hero-banner { height: 300px; }
+    .driver-hero-info h1 { font-size: 3.5em; }
+    .driver-hero-info h2 { font-size: 2em; }
+    .driver-stats-section h2 { font-size: 2.5em; }
+
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 1.8em; }
+    header nav a { margin: 0 8px; font-size: 0.9em; }
+    .hero-and-sidebar { grid-template-columns: 1fr; }
+    .hero-article h2 { font-size: 2em; }
+    .sidebar h3, .stories h2, section h2 { font-size: 2em; }
+    .driver-card { min-width: unset; width: 100%; } /* Stats page */
+    .stats-container { flex-direction: column; } /* Stats page */
+    .vs { margin: 15px 0; } /* Stats page */
+    .schedule-grid { grid-template-columns: 1fr; }
+    .driver-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } /* Adjust driver grid on tablet */
+    .driver-hero-banner { flex-direction: column; height: auto; text-align: center; }
+    .driver-hero-info { width: 100%; padding: 20px; text-align: center; }
+    .driver-hero-info h1, .driver-hero-info h2 { text-align: center; }
+    .driver-hero-image { position: relative; width: 100%; height: 250px; }
+    .driver-hero-image img { mask-image: none; -webkit-mask-image: none; object-position: center; }
+    .stats-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.5em; }
+    header nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    header nav a { flex: 1 1 auto; margin: 5px; padding: 5px; }
+    .hero-article, .sidebar, .story-card { padding: 15px; }
+    .hero-article h2 { font-size: 1.6em; }
+    .sidebar h3, .stories h2, section h2 { font-size: 1.6em; }
+    table th, table td { padding: 8px 10px; font-size: 0.9em; }
+    .podium-name { font-size: 1rem; }
+    .driver-grid { grid-template-columns: 1fr; } /* Stack driver cards on mobile */
+    .driver-grid-card { min-height: unset; }
+    .driver-card-image-container { height: 180px; }
+    .driver-name { font-size: 1.6em; }
+    .driver-number { font-size: 3em; margin-top: 5px; }
+    .driver-flag { font-size: 1.2em; top: 5px; right: 5px; }
+    .driver-hero-info h1 { font-size: 3em; }
+    .driver-hero-info h2 { font-size: 1.8em; }
+    .driver-stats-section h2 { font-size: 2em; }
+    .stat-value { font-size: 1.5em; }
+
+}
