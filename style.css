@@ -1,215 +1,423 @@
-/* =============================================
-   BASIC SETUP
-============================================== */
-:root {
-    --ferrari-red: #D20000;
-    --dark-grey: #1E1E1E;
-    --mid-grey: #2C2C2C;
-    --light-grey: #e0e0e0;
-    --white: #FFFFFF;
-}
-
 body {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    background-color: var(--dark-grey);
-    color: var(--light-grey);
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #1a1a1e; /* Darker background inspired by F1.com */
+    color: #f0f0f0; /* Light text for contrast */
     line-height: 1.6;
 }
 
 .container {
-    max-width: 900px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1, h2, h3, h4 {
-    color: var(--white);
-    font-weight: 700;
-}
-
-h1 { font-size: 2.5rem; }
-h2 {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--ferrari-red);
-    border-bottom: 2px solid var(--mid-grey);
-    padding-bottom: 10px;
-    margin-top: 40px;
-}
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.25rem; color: var(--ferrari-red); }
-
-a {
-    color: var(--ferrari-red);
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-
-p {
-    margin-bottom: 20px;
-}
-
-/* =============================================
-   HEADER & NAV
-============================================== */
-header {
-    background: var(--mid-grey);
     padding: 20px 0;
-    border-bottom: 4px solid var(--ferrari-red);
-    text-align: center;
+}
+
+header {
+    background-color: #000000; /* Black header */
+    color: white;
+    padding: 15px 0;
+    border-bottom: 3px solid #e10600; /* F1 red accent */
 }
 
 header h1 {
-    margin: 0 0 10px 0;
+    margin: 0;
+    font-size: 2.2em;
+    text-align: center;
+    letter-spacing: 2px;
     font-weight: 900;
-    letter-spacing: 1px;
+    color: #e10600; /* F1 red for the hub title */
+}
+
+header nav {
+    text-align: center;
+    margin-top: 15px;
 }
 
 header nav a {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0 15px;
-    padding-bottom: 5px;
-    transition: all 0.2s ease;
-}
-
-header nav a:hover {
-    color: var(--ferrari-red);
+    color: white;
     text-decoration: none;
+    font-weight: 700;
+    margin: 0 15px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
 }
 
+header nav a:hover,
 header nav a.active {
-    color: var(--ferrari-red);
-    border-bottom: 2px solid var(--ferrari-red);
+    color: #e10600; /* F1 red on hover/active */
+    border-bottom: 2px solid #e10600;
 }
 
-/* =============================================
-   STATS SECTION
-============================================== */
-.stats-container {
+main {
+    padding: 30px 0;
+}
+
+/* --- New F1.com Inspired Layout --- */
+.hero-and-sidebar {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* Main article wide, sidebar narrower */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.hero-article {
+    background-color: #2a2a2e; /* Slightly lighter dark for articles */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-article h2 {
+    font-size: 2.5em;
+    margin-top: 0;
+    color: #e10600; /* F1 red for main article title */
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+.hero-article h3 {
+    font-size: 1.8em;
+    color: #f0f0f0;
+    margin-top: 20px;
+}
+
+.hero-article p {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+.hero-article .subhead {
+    font-weight: 700;
+    color: #ccc;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.hero-article .article-meta {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
+}
+.hero-article .article-meta span strong {
+    color: #e10600;
+}
+
+.hero-article blockquote {
+    border-left: 5px solid #e10600;
+    padding-left: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #ccc;
+    background-color: #333338;
+    padding: 15px 20px;
+    border-radius: 4px;
+}
+blockquote br {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidebar {
+    background-color: #2a2a2e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    color: #e10600;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.sidebar .highlight-article {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #3a3a3e;
+}
+
+.sidebar .highlight-article:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar .highlight-article a {
+    text-decoration: none;
+    color: #f0f0f0;
+    display: block;
+}
+
+.sidebar .highlight-article h4 {
+    font-size: 1.2em;
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.sidebar .highlight-article a:hover h4 {
+    color: #e10600;
+}
+
+/* --- Stories Section --- */
+.stories {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #1a1a1e; /* Match body background */
+}
+
+.stories h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #e10600;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for story cards */
+    gap: 25px;
+}
+
+.story-card {
+    background-color: #2a2a2e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the whole card clickable */
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.story-card img {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+    line-height: 1.4;
+}
+
+.card-content .card-meta {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* --- Standings/Stats Tables --- */
+section h2 {
+    font-size: 2.5em;
+    color: #e10600;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+section h3 {
+    font-size: 1.8em;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #2a2a2e;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+table thead {
+    background-color: #e10600; /* F1 red for table headers */
+    color: white;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+table th {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #2a2a2e;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #333338; /* Slightly different shade for even rows */
+}
+
+table tbody tr:hover {
+    background-color: #44444a; /* Hover effect for rows */
+}
+
+.ferrari-row {
+    background-color: #5a0000 !important; /* Ferrari red highlight for rows */
+    font-weight: 700;
+    color: #fff;
+}
+.ferrari-row td {
+    border-color: #770000;
+}
+
+/* Driver Stats specific styling */
+.stats-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .driver-card {
-    background: var(--mid-grey);
-    padding: 20px 30px;
+    background-color: #2a2a2e;
+    padding: 25px;
     border-radius: 8px;
-    width: 40%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 280px;
+    flex: 1; /* Allows cards to grow and shrink */
 }
 
 .driver-card h3 {
-    margin-top: 0;
-    text-align: center;
-    border-bottom: 1px solid var(--dark-grey);
+    color: #e10600;
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #444;
     padding-bottom: 10px;
 }
 
 .stat-line {
     display: flex;
     justify-content: space-between;
-    font-size: 1.1rem;
-    padding: 5px 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed #555;
+    font-size: 1.1em;
 }
+
+.stat-line:last-child {
+    border-bottom: none;
+}
+
+.stat-line span {
+    font-weight: 400;
+    color: #ccc;
+}
+
 .stat-line strong {
-    font-weight: 900;
-    font-size: 1.2rem;
-    color: var(--white);
+    font-weight: 700;
+    color: #e10600;
 }
 
 .vs {
-    font-size: 3rem;
+    font-size: 3em;
     font-weight: 900;
-    color: var(--ferrari-red);
+    color: #e10600;
+    /* Optional: text-shadow for a glow effect */
+    text-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
 }
 
-/* =============================================
-   STANDINGS TABLE
-============================================== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
 
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-}
-
-table th {
-    background-color: var(--ferrari-red);
-    color: var(--white);
-    font-weight: 700;
-}
-
-table tr {
-    background-color: var(--mid-grey);
-    border-bottom: 2px solid var(--dark-grey);
-}
-
-table tr:nth-child(even) {
-    background-color: #262626;
-}
-
-table tr:hover {
-    background-color: #3a3a3a;
-}
-
-/* =============================================
-   ARTICLES
-============================================== */
-article {
-    background: var(--mid-grey);
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border-left: 5px solid var(--ferrari-red);
-}
-
-.article-meta {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin-bottom: 15px;
-}
-.article-meta span {
-    margin-right: 20px;
-}
-
-article h3 {
-    margin-top: 0;
-}
-
-.subhead {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #ccc;
-    border-bottom: 1px solid #444;
-    padding-bottom: 20px;
-}
-
-blockquote {
-    border-left: 4px solid var(--ferrari-red);
-    margin: 20px 0;
-    padding: 10px 20px;
-    font-style: italic;
-    font-size: 1.1rem;
-    background: var(--dark-grey);
-}
-
-/* =============================================
-   FOOTER
-============================================== */
+/* Footer */
 footer {
+    background-color: #000000;
+    color: #888;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     margin-top: 40px;
-    font-size: 0.9rem;
-    color: #777;
-    border-top: 1px solid var(--mid-grey);
+    font-size: 0.9em;
+    border-top: 3px solid #e10600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header nav a {
+        margin: 0 8px;
+        font-size: 0.9em;
+    }
+    .hero-and-sidebar {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+    .hero-article h2 {
+        font-size: 2em;
+    }
+    .sidebar h3, .stories h2, section h2 {
+        font-size: 2em;
+    }
+    .driver-card {
+        min-width: unset;
+        width: 100%;
+    }
+    .stats-container {
+        flex-direction: column;
+    }
+    .vs {
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header nav a {
+        flex: 1 1 auto;
+        margin: 5px;
+        padding: 5px;
+    }
+    .hero-article, .sidebar, .story-card {
+        padding: 15px;
+    }
+    .hero-article h2 {
+        font-size: 1.6em;
+    }
+    .sidebar h3, .stories h2, section h2 {
+        font-size: 1.6em;
+    }
+    table th, table td {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
 }
