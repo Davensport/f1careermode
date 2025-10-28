@@ -312,7 +312,7 @@ table tbody tr:hover {
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-.driver-card {
+.driver-card { /* This is for STATS page, driver-grid-card is for DRIVERS page */
     background-color: #2a2a2e;
     padding: 25px;
     border-radius: 8px;
@@ -505,7 +505,7 @@ table tbody tr:hover {
     text-transform: uppercase;
 }
 
-/* --- NEW DRIVERS PAGE STYLES --- */
+/* --- REVISED DRIVERS PAGE STYLES --- */
 .page-intro { /* Simple intro text style */
     text-align: center;
     margin-bottom: 40px;
@@ -514,7 +514,7 @@ table tbody tr:hover {
 }
 .driver-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly wider cards */
     gap: 20px;
 }
 
@@ -523,55 +523,34 @@ table tbody tr:hover {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    padding: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none;
     color: #f0f0f0;
+    display: grid; /* Use grid for internal layout */
+    grid-template-columns: 1fr 1.5fr; /* Left info, Right image (wider) */
+    align-items: stretch; /* Make columns same height */
+    min-height: 150px; /* Minimum card height */
 }
 .driver-grid-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-.driver-grid-card::before { /* Team color accent bar */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 6px;
-    width: 100%;
-}
-/* Team Colors */
-.driver-card-ferrari::before { background-color: #D20000; }
-.driver-card-redbull::before { background-color: #06002f; }
-.driver-card-mclaren::before { background-color: #FF8700; }
-.driver-card-mercedes::before { background-color: #00D2BE; }
-.driver-card-williams::before { background-color: #005AFF; }
-.driver-card-aston::before { background-color: #006F62; }
-.driver-card-alpine::before { background-color: #0090FF; }
-.driver-card-haas::before { background-color: #FFFFFF; }
-.driver-card-sauber::before { background-color: #00F5D0; } /* Kick Sauber green */
-.driver-card-rb::before { background-color: #6692FF; } /* Visa Cash App RB blue */
-
-
-.driver-card-main {
+.driver-card-info { /* Container for left side info */
+    padding: 15px;
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 10px; /* Space below accent bar */
+    flex-direction: column;
+    justify-content: space-between; /* Push number to bottom */
+    position: relative; /* Needed for flag positioning */
+    border-right: 1px solid #444; /* Separator line */
 }
 
-.driver-card-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px; /* Slightly rounded corners for image */
-    border: 2px solid #444;
-}
-
-.driver-card-info {
-    flex-grow: 1;
+.driver-flag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em; /* Adjust flag size as needed */
 }
 
 .driver-name {
@@ -579,10 +558,11 @@ table tbody tr:hover {
     font-weight: 700;
     margin: 0 0 5px 0;
     color: #fff;
+    line-height: 1.2;
 }
 .driver-name span { /* For first name */
     font-weight: 300;
-    display: block; /* Stack names */
+    display: block;
 }
 
 .driver-team {
@@ -592,11 +572,51 @@ table tbody tr:hover {
 }
 
 .driver-number {
-    font-size: 2.5em;
+    font-size: 3em; /* Larger number */
     font-weight: 900;
-    color: #e10600; /* Use team color? Maybe red is better overall */
+    color: #e10600; /* Default red, can override per team below */
     line-height: 1;
+    margin-top: auto; /* Push to bottom */
 }
+/* Team specific number colors (optional) */
+.driver-card-ferrari .driver-number { color: #D20000; }
+.driver-card-redbull .driver-number { color: #ccc; text-shadow: 0 0 5px #06002f; }
+.driver-card-mclaren .driver-number { color: #FF8700; }
+.driver-card-mercedes .driver-number { color: #00D2BE; }
+.driver-card-williams .driver-number { color: #005AFF; }
+.driver-card-aston .driver-number { color: #006F62; }
+.driver-card-alpine .driver-number { color: #0090FF; }
+.driver-card-haas .driver-number { color: #888; } /* White bg doesn't work well */
+.driver-card-sauber .driver-number { color: #00F5D0; }
+.driver-card-rb .driver-number { color: #6692FF; }
+
+.driver-card-image-container { /* Container for right side image */
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't break layout */
+}
+
+.driver-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    display: block;
+    border-radius: 0; /* No rounding needed if container handles it */
+    border: none; /* Remove previous border */
+}
+
+/* Team color background hints (subtle) */
+.driver-card-ferrari { background: linear-gradient(90deg, #2a2a2e 40%, #4a0000 100%); }
+.driver-card-redbull { background: linear-gradient(90deg, #2a2a2e 40%, #03001a 100%); }
+.driver-card-mclaren { background: linear-gradient(90deg, #2a2a2e 40%, #663600 100%); }
+.driver-card-mercedes { background: linear-gradient(90deg, #2a2a2e 40%, #004d46 100%); }
+.driver-card-williams { background: linear-gradient(90deg, #2a2a2e 40%, #002366 100%); }
+.driver-card-aston { background: linear-gradient(90deg, #2a2a2e 40%, #00302a 100%); }
+.driver-card-alpine { background: linear-gradient(90deg, #2a2a2e 40%, #003a66 100%); }
+.driver-card-haas { background: linear-gradient(90deg, #2a2a2e 40%, #333333 100%); }
+.driver-card-sauber { background: linear-gradient(90deg, #2a2a2e 40%, #005a4e 100%); }
+.driver-card-rb { background: linear-gradient(90deg, #2a2a2e 40%, #293a66 100%); }
+
+
 /* --- END DRIVERS PAGE STYLES --- */
 
 
@@ -612,18 +632,24 @@ footer {
 }
 
 /* Responsive adjustments */
+@media (max-width: 900px) { /* Adjust breakpoint if needed */
+    .driver-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+    .driver-grid-card { grid-template-columns: 1fr; } /* Stack layout within card */
+    .driver-card-info { border-right: none; border-bottom: 1px solid #444; }
+    .driver-card-image-container { height: 200px; } /* Give image a fixed height when stacked */
+}
+
 @media (max-width: 768px) {
     header h1 { font-size: 1.8em; }
     header nav a { margin: 0 8px; font-size: 0.9em; }
     .hero-and-sidebar { grid-template-columns: 1fr; }
     .hero-article h2 { font-size: 2em; }
     .sidebar h3, .stories h2, section h2 { font-size: 2em; }
-    .driver-card { min-width: unset; width: 100%; }
-    .stats-container { flex-direction: column; }
-    .vs { margin: 15px 0; }
+    .driver-card { min-width: unset; width: 100%; } /* Stats page */
+    .stats-container { flex-direction: column; } /* Stats page */
+    .vs { margin: 15px 0; } /* Stats page */
     .schedule-grid { grid-template-columns: 1fr; }
     .driver-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } /* Adjust driver grid on tablet */
-
 }
 
 @media (max-width: 480px) {
@@ -636,9 +662,9 @@ footer {
     table th, table td { padding: 8px 10px; font-size: 0.9em; }
     .podium-name { font-size: 1rem; }
     .driver-grid { grid-template-columns: 1fr; } /* Stack driver cards on mobile */
-    .driver-card-main { flex-direction: column; text-align: center; }
-    .driver-card-image { width: 120px; height: 120px; margin-bottom: 10px; }
+    .driver-grid-card { min-height: unset; }
+    .driver-card-image-container { height: 180px; }
     .driver-name { font-size: 1.6em; }
     .driver-number { font-size: 3em; margin-top: 5px; }
-
+    .driver-flag { font-size: 1.2em; top: 5px; right: 5px; }
 }
