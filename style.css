@@ -85,10 +85,10 @@ main {
 }
 .hero-image {
     width: 100%;
-    max-width: 65%; /* Adjusted size */
+    /* max-width: 65%; REMOVED - will take full width of article now */
     height: auto;
     display: block;
-    margin: 20px auto; /* Add margin top/bottom */
+    margin: 20px auto;
     border-radius: 8px;
 }
 
@@ -519,7 +519,7 @@ table tbody tr:hover {
     text-transform: uppercase;
 }
 
-/* Drivers Page Grid */
+/* Drivers Page Grid - UPDATED FOR 4 COLUMNS */
 .page-intro {
     text-align: center;
     margin-bottom: 40px;
@@ -528,7 +528,8 @@ table tbody tr:hover {
 }
 .driver-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Changed minmax to encourage 4 columns */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Adjust 260px if needed */
     gap: 20px;
 }
 
